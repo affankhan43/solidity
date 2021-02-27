@@ -51,6 +51,12 @@ describe('Testing',()=>{
 		assert.ok(inbox.options.address)
 
 	})
+	it('setMessage',async ()=>{
+		var data =  await inbox.methods.setMessage('bye').send({'from':accounts[0]});
+		var data1 = await inbox.methods.message().call()
+		console.log(data1)
+		assert.equal(data1,'bye')
+	})
 })
 
 
